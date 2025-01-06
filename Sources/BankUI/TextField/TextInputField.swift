@@ -1,7 +1,6 @@
 import SwiftUI
 import Combine
 
-@available(macOS 11.0, *)
 public struct TextInputField: View {
   private var title: String
   @Binding private var text: String
@@ -96,7 +95,6 @@ public struct TextInputField: View {
 
 // MARK: - Clear Button
 
-@available(macOS 11.0, *)
 extension View {
   public func clearButtonHidden(_ hidesClearButton: Bool = true) -> some View {
     environment(\.clearButtonHidden, hidesClearButton)
@@ -107,7 +105,6 @@ private struct TextInputFieldClearButtonHidden: EnvironmentKey {
   static var defaultValue: Bool = false
 }
 
-@available(macOS 11.0, *)
 extension EnvironmentValues {
   var clearButtonHidden: Bool {
     get { self[TextInputFieldClearButtonHidden.self] }
@@ -116,7 +113,7 @@ extension EnvironmentValues {
 }
 
 // MARK: - Mandatory Field
-@available(macOS 11.0, *)
+
 extension View {
   public func isMandatory(_ value: Bool = true) -> some View {
     environment(\.isMandatory, value)
@@ -127,7 +124,6 @@ private struct TextInputFieldMandatory: EnvironmentKey {
   static var defaultValue: Bool = false
 }
 
-@available(macOS 11.0, *)
 extension EnvironmentValues {
   var isMandatory: Bool {
     get { self[TextInputFieldMandatory.self] }
@@ -136,7 +132,7 @@ extension EnvironmentValues {
 }
 
 // MARK: - Validation Handler
-@available(macOS 11.0, *)
+
 public struct ValidationError: Error {
   public init(message: String) {
     self.message = message
@@ -144,18 +140,16 @@ public struct ValidationError: Error {
   let message: String
 }
 
-@available(macOS 11.0, *)
 extension ValidationError: LocalizedError {
   public var errorDescription: String? {
     return NSLocalizedString("\(message)", comment: "Message for generic validation errors.")
   }
 }
-@available(macOS 11.0, *)
+
 private struct TextInputFieldValidationHandler: EnvironmentKey {
   static var defaultValue: ((String) -> Result<Bool, ValidationError>)?
 }
 
-@available(macOS 11.0, *)
 extension EnvironmentValues {
   var validationHandler: ((String) -> Result<Bool, ValidationError>)? {
     get { self[TextInputFieldValidationHandler.self] }
@@ -163,7 +157,6 @@ extension EnvironmentValues {
   }
 }
 
-@available(macOS 11.0, *)
 extension View {
   public func onValidate(validationHandler: @escaping (String) -> Result<Bool, ValidationError>) -> some View {
     environment(\.validationHandler, validationHandler)
@@ -171,7 +164,7 @@ extension View {
 }
 
 // MARK: - Previews
-@available(macOS 11.0, *)
+
 struct TextInputField_Previews: PreviewProvider {
   static var previews: some View {
     Group {
@@ -186,7 +179,7 @@ struct TextInputField_Previews: PreviewProvider {
 }
 
 // MARK: - Component Library
-@available(macOS 11.0, *)
+
 struct TextInputField_Library: LibraryContentProvider {
   var views: [LibraryItem] {
     [LibraryItem(TextInputField("First Name", text: .constant("Peter")), title: "TextInputField", category: .control)]

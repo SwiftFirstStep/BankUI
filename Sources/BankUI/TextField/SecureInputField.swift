@@ -1,7 +1,6 @@
 import SwiftUI
 import Combine
 
-@available(macOS 11.0, *)
 public struct SecureInputField: View {
   private var title: String
   @Binding private var text: String
@@ -96,7 +95,6 @@ public struct SecureInputField: View {
 
 // MARK: - Previews
 
-@available(macOS 11.0, *)
 struct SecureInputField_Previews: PreviewProvider {
     static var previews: some View {
     Group {
@@ -111,7 +109,7 @@ struct SecureInputField_Previews: PreviewProvider {
 }
 
 // MARK: - Component Library
-@available(macOS 11.0, *)
+
 struct SecureInputField_Library: LibraryContentProvider {
     var views: [LibraryItem] {
     [LibraryItem(SecureInputField("First Name", text: .constant("Peter")), title: "SecureInputField", category: .control)]
