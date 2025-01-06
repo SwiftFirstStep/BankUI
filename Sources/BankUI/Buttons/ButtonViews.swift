@@ -1,7 +1,5 @@
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(macOS 10.15.0, *)
 public struct PrimaryButton: View {
     var text: String
     var action: () -> Void
@@ -22,8 +20,6 @@ public struct PrimaryButton: View {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(macOS 10.15.0, *)
 public struct SecondaryButton: View {
     var text: String
     var action: () -> Void
@@ -48,8 +44,6 @@ public struct SecondaryButton: View {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(macOS 10.15.0, *)
 public struct OutlineButton: View {
     var text: String
     var action: () -> Void
@@ -74,8 +68,6 @@ public struct OutlineButton: View {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(macOS 10.15.0, *)
 public struct IconButton: View {
     var icon: Image
     var action: () -> Void
